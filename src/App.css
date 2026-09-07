@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    margin: 0;
+ font-family: Arial, Helvetica, sans-serif;
+ background: #f7f7f7;
+ color: #111111;
+
+}
+.header {
+    width: 100%;
+    height: 78px;
+    background: #c8c8c8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   padding: 0 6%;
+    border-bottom: 1px solid #eeeeee;
+    
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+border-radius: 50%;
+    object-fit: contain;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.05);
+}.navbar {
+    display: flex;
+    align-items: center;
+
+}
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+
+    list-style: none;
+}
+.nav-list li {
+    position: relative;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #111111;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.nav-list li:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    background: #111111;
+
+    left: 50%;
+    bottom: -8px;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+.nav-list li:not(:last-child):hover::after {
+    width: 100%;
+}
+.nav-list li:last-child {
+    background: #111111;
+
+    color: white;
+
+    padding: 12px 26px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.nav-list li:last-child:hover {
+    background: #333333;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}.hero {
+    width: 100%;
+
+    min-height: calc(100vh - 78px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 6%;
+
+    background: #f5f5f5;
+}
+.landing-img {
+    width: 100%;
+
+    max-width: 1250px;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.12);
+}
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 4%;
+    }
+
+    .nav-list {
+        gap: 25px;
+    }
+
+    .hero {
+        padding: 35px 4%;
+    }
+}
+@media (max-width: 768px) {
+
+    .header {
+        height: auto;
+
+        min-height: 75px;
+
+        padding: 15px 25px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .navbar {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .nav-list {
+        gap: 20px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .nav-list li {
+        font-size: 14px;
+    }
+
+    .nav-list li:last-child {
+        padding: 9px 20px;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding: 25px 20px;
+    }
+
+    .landing-img {
+        width: 100%;
+
+        border-radius: 4px;
+    }
+}
+@media (max-width: 480px) {
+
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .nav-list {
+        gap: 14px;
+    }
+
+    .nav-list li {
+        font-size: 13px;
+    }
+
+    .nav-list li:last-child {
+        padding: 8px 17px;
+    }
+
+    .hero {
+        padding: 20px 15px;
+    }
+}
+.services {
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 30px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+/* =========================
+   SERVICE CARD
+========================= */
+
+.service-card {
+  position: relative;
+
+  background: #ffffff;
+
+  padding: 40px 30px;
+
+  min-height: 330px;
+
+  border-radius: 18px;
+
+  border: 1px solid #eeeeee;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+
+  overflow: hidden;
+}
+
+
+/* Top decoration */
+
+.service-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: #111;
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: transform 0.3s ease;
+}
+
+
+/* Hover */
+
+.service-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.service-icon {
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 25px;
+
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.service-icon i {
+  font-size: 30px;
+
+  color: #111;
+}
+
+
+/* Icon hover */
+
+.service-card:hover .service-icon {
+  background: #111;
+
+  transform: scale(1.08);
+}
+
+.service-card:hover .service-icon i {
+  color: #ffffff;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.service-card h3 {
+  margin: 0 0 15px;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: #171717;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.service-card p {
+  margin: 0 auto 25px;
+
+  max-width: 310px;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color: #666;
+}
+
+
+/* =========================
+   LEARN MORE
+========================= */
+
+.service-card a {
+  display: inline-block;
+
+  color: #111;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.service-card a:hover {
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .services {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .services {
+    grid-template-columns: 1fr;
+
+    margin: 50px auto;
+
+    padding: 0 20px;
+  }
+
+  .service-card {
+    padding: 35px 25px;
+  }
+
+}
+
+
+.home-text { width: 90%;
+   max-width: 1100px;
+    margin: 70px auto;
+     padding: 45px 60px; 
+     background:#000000; 
+     color: #ffffff; 
+     border-radius: 20px; 
+     font-size: 18px; 
+     line-height: 1.8; 
+     text-align: center; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); letter-spacing: 0.3px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+ .home-text:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+ footer { width: 100%; padding: 20px 0; 
+  background: #b7b6b6; 
+  color:black; 
+   text-align: center;
+    font-size: 14px; }
