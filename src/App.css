@@ -698,3 +698,253 @@ border-radius: 50%;
         padding: 13px;
     }
 }
+.content-management {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 35px;
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Page Title */
+.content-management h1 {
+  margin: 0 0 30px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.5px;
+}
+
+/* Section Title */
+.content-management h2 {
+  margin: 30px 0 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+}
+
+/* Form */
+.content-management form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Groups */
+.content-management form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Labels */
+.content-management label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+}
+
+/* Inputs */
+.content-management input,
+.content-management textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* Textarea */
+.content-management textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Placeholder */
+.content-management input::placeholder,
+.content-management textarea::placeholder {
+  color: #999999;
+}
+
+/* Input Focus */
+.content-management input:focus,
+.content-management textarea:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+.content-management button {
+  width: fit-content;
+  min-width: 120px;
+  padding: 11px 20px;
+  border: 1px solid #111111;
+  border-radius: 7px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Button Hover */
+.content-management button:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+/* Form Buttons */
+.content-management form button {
+  margin-top: 5px;
+}
+
+/* Cancel Button */
+.content-management form button[type="button"] {
+  background: #ffffff;
+  color: #111111;
+  border-color: #cccccc;
+  margin-top: -10px;
+}
+
+.content-management form button[type="button"]:hover {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+/* Divider */
+.content-management hr {
+  margin: 35px 0;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Content List */
+.content-management > div:last-child {
+  width: 100%;
+}
+
+/* Individual Content Card */
+.content-item {
+  padding: 22px;
+  margin-bottom: 16px;
+  background: #fafafa;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.content-item:hover {
+  background: #ffffff;
+  border-color: #111111;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+/* Content Title */
+.content-item h3 {
+  margin: 0 0 10px;
+  color: #111111;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* Content Description */
+.content-item p {
+  margin: 0 0 18px;
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Edit Button */
+.content-item button:first-of-type {
+  background: #ffffff;
+  color: #111111;
+  border-color: #111111;
+  margin-right: 8px;
+}
+
+.content-item button:first-of-type:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* Delete Button */
+.content-item button:last-of-type {
+  background: #111111;
+  color: #ffffff;
+}
+
+.content-item button:last-of-type:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+/* No Content */
+.content-management > p {
+  padding: 25px;
+  text-align: center;
+  color: #777777;
+  background: #fafafa;
+  border: 1px dashed #cccccc;
+  border-radius: 8px;
+}
+
+/* ================================
+   Responsive Design
+================================ */
+
+@media (max-width: 768px) {
+  .content-management {
+    margin: 20px;
+    padding: 25px;
+    width: calc(100% - 40px);
+  }
+
+  .content-management h1 {
+    font-size: 27px;
+  }
+
+  .content-management h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-management {
+    margin: 10px;
+    padding: 18px;
+    width: calc(100% - 20px);
+    border-radius: 10px;
+  }
+
+  .content-management h1 {
+    font-size: 24px;
+  }
+
+  .content-management input,
+  .content-management textarea {
+    font-size: 14px;
+  }
+
+  .content-management button {
+    width: 100%;
+  }
+
+  .content-item button {
+    width: 100%;
+    margin: 5px 0 !important;
+  }
+}
