@@ -20,7 +20,7 @@ router.post('/contact', async (req, res) => {
                   .input('subjects', sql.VarChar(200), subjects)
                   .input('message', sql.VarChar(sql.MAX), message)
                   .input('Role_id', sql.Int, 1)
-                  .query('INSERT INTO Users (full_name, email, phone_nbr, subjects, message, Role_id)VALUES (@full_name, @email, @phone_nbr, @subjects, @message, @Role_id)');
+                  .query('INSERT INTO Contact (full_name, email, phone_nbr, subjects, message, Role_id)VALUES (@full_name, @email, @phone_nbr, @subjects, @message, @Role_id)');
             res.status(200).json({ message: 'Contact form submitted successfully' });
       } catch (error) {
             console.error('Error submitting contact form:', error);
