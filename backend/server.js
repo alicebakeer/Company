@@ -18,6 +18,8 @@ const loginRoutes = require("./Login");
 console.log("LOGIN ROUTES LOADED");
 app.use("/api/auth", loginRoutes);
 
+const serviceRoutes=require("./Service");
+app.use("/api/service",serviceRoutes);
 
 const authMiddleware = require("./middleware/authmiddleware");
 

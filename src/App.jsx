@@ -4,6 +4,7 @@ import Login from './Login'
 import About from './About'
 import Contact from './Contact'
 import Dashboard from './Dashboard'
+import Services from './Services'
 import Content from './Content'
 import SignUp from './SignUp'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,8 +21,9 @@ function App() {
          <Route path="/signup" element={<SignUp />} />
 
         <Route path="/login" element={<Login />} />
-
+        <Route path="/service" element={<Services />} />
         <Route path="/content" element={<Content />} />
+
       </Routes>
     </BrowserRouter>
   )

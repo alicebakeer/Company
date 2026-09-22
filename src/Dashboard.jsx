@@ -82,7 +82,24 @@ function Dashboard() {
                             View Profile
                         </button>
                     </div>
+                           <div className="dashboard-card">
+                        <div className="card-icon">
+                            ✉
+                        </div>
 
+                        <h3>Service Management</h3>
+
+                        <p>
+                            Your Service is our priority.
+                        </p>
+
+                        <button
+                            className="dashboard-btn"
+                            onClick={() => navigate('/service')}
+                        >
+                          Service
+                        </button>
+                    </div>
 
                     <div className="dashboard-card">
                         <div className="card-icon">

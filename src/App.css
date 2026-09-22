@@ -1302,3 +1302,264 @@ border-radius: 50%;
         width: 100%;
     }
 }
+/* =========================
+   SERVICE MANAGEMENT
+========================= */
+
+.Service-management {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* TITLE */
+
+.Service-management h1 {
+    font-size: 32px;
+    font-weight: 700;
+
+    margin-bottom: 30px;
+
+    color: #111111;
+}
+
+.Service-management h2 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+    font-size: 24px;
+
+    color: #222222;
+}
+
+
+/* FORM */
+
+.Service-management form {
+    background: #f5f5f5;
+
+    border: 1px solid #dddddd;
+
+    padding: 25px;
+
+    border-radius: 12px;
+}
+
+
+/* FORM GROUP */
+
+.Service-management form div {
+    margin-bottom: 20px;
+}
+
+
+/* LABEL */
+
+.Service-management label {
+    display: block;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    color: #333333;
+}
+
+
+/* INPUT AND TEXTAREA */
+
+.Service-management input,
+.Service-management textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    transition: border 0.2s ease;
+
+}
+
+
+.Service-management input:focus,
+.Service-management textarea:focus {
+
+    border-color: #555555;
+
+}
+
+
+.Service-management textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+}
+
+
+/* BUTTONS */
+
+.Service-management button {
+
+    padding: 11px 20px;
+
+    margin-right: 10px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #222222;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+
+}
+
+
+.Service-management button:hover {
+
+    background: #555555;
+
+}
+
+
+/* CANCEL BUTTON */
+
+.Service-management button[type="button"] {
+
+    background: #aaaaaa;
+
+    color: #111111;
+
+}
+
+
+.Service-management button[type="button"]:hover {
+
+    background: #888888;
+
+}
+
+
+/* SEPARATOR */
+
+.Service-management hr {
+
+    margin: 35px 0;
+
+    border: none;
+
+    border-top: 1px solid #dddddd;
+
+}
+
+
+/* SERVICE LIST */
+
+.Service-management .content-item {
+
+    background: #f8f8f8;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    transition: box-shadow 0.2s ease;
+
+}
+
+
+.Service-management .content-item:hover {
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* SERVICE NAME */
+
+.Service-management .content-item h3 {
+
+    margin: 0 0 10px;
+
+    font-size: 19px;
+
+    color: #222222;
+
+}
+
+
+/* DESCRIPTION */
+
+.Service-management .content-item p {
+
+    margin-bottom: 18px;
+
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .Service-management {
+
+        margin: 15px;
+
+        padding: 15px;
+
+    }
+
+    .Service-management h1 {
+
+        font-size: 25px;
+
+    }
+
+    .Service-management form {
+
+        padding: 18px;
+
+    }
+
+}
