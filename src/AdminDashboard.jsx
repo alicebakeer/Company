@@ -3,11 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import './App.css';
 
-function Dashboard() {
+function AdminDashboard() {
     const navigate = useNavigate();
-
     const [user, setUser] = useState(null);
-
     useEffect(() => {
         const token = localStorage.getItem('token');
         const savedUser = localStorage.getItem('user');
@@ -39,7 +37,7 @@ function Dashboard() {
                 <div className="dashboard-header">
                     <div>
                         <p className="dashboard-label">
-                            USER DASHBOARD
+                            Admin DASHBOARD
                         </p>
 
                         <h1>
@@ -62,87 +60,27 @@ function Dashboard() {
                 </div>
 
 
-                <div className="dashboard-cards">
-
-                    <div className="dashboard-card">
-                        <div className="card-icon">
-                            👤
-                        </div>
-
-                        <h3>Customer Request</h3>
-
-                        <p>
-                            Send your Request .
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/CustomerService')}
-                        >
-                            View Profile
-                        </button>
-                    </div>
+              
                            <div className="dashboard-card">
                         <div className="card-icon">
                             ✉
                         </div>
 
-                        <h3>Service Management</h3>
+                        <h3>Admin Requests</h3>
 
                         <p>
-                            Your Service is our priority.
+                         Your Requests will be done
                         </p>
 
                         <button
                             className="dashboard-btn"
-                            onClick={() => navigate('/service')}
+                            onClick={() => navigate('/AdminCustomerRequests')}
                         >
                           Service
                         </button>
                     </div>
 
-                    <div className="dashboard-card">
-                        <div className="card-icon">
-                            ✉
-                        </div>
-
-                        <h3>Contact</h3>
-
-                        <p>
-                            Send us your questions, requests or messages.
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/contact')}
-                        >
-                            Contact Us
-                        </button>
-                    </div>
-
-
-                    <div className="dashboard-card">
-                        <div className="card-icon">
-                            ⚙
-                        </div>
-
-                        <h3>Content Management</h3>
-
-                        <p>
-                            Manage and update your website content.
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/content')}
-                        >
-                            Manage Content
-                        </button>
-                    </div>
-
-                </div>
-
-
+                   
                 {user && (
                     <div className="user-info-card">
 
@@ -196,4 +134,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default AdminDashboard;

@@ -22,7 +22,6 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         setMessage('');
 
         try {
@@ -62,36 +61,37 @@ function Login() {
                 return;
             }
 
-            if (response.ok) {
+           if (response.ok) {
+    alert('Login occurred successfully');
 
-                alert('Login occurred successfully');
+    localStorage.setItem(
+        'token',
+        Data.token
+    );
 
-                localStorage.setItem(
-                    'token',
-                    Data.token
-                );
+    localStorage.setItem(
+        'user',
+        JSON.stringify(Data.user)
+    );
 
-                localStorage.setItem(
-                    'user',
-                    JSON.stringify(Data.user)
-                );
+    setData({
+        email: '',
+        password: ''
+    });
 
-                setData({
-                    email: '',
-                    password: ''
-                });
-
-                navigate('/dashboard');
-
-            } else {
-
-                setMessage(
-                    Data.message || 'Failed to login'
-                );
-            }
-
+    if (Data.user.Role_id === 1) {
+        navigate('/dashboard');
+    } 
+    else if (Data.user.Role_id === 2) {
+        navigate('/AdminDashboard');
+    } 
+    else {
+        setMessage(
+            'You do not have permission to access this system.'
+        );
+    }
+}
         } catch (error) {
-
             console.error(
                 'Error submitting form:',
                 error
@@ -106,7 +106,6 @@ function Login() {
     return (
         <>
             <div className="contact">
-
                 <Header />
 
                 <h2>Login</h2>
@@ -115,7 +114,6 @@ function Login() {
                     onSubmit={handleSubmit}
                     className="contact-form"
                 >
-
                     <div>
                         <label htmlFor="email">
                             Email:
@@ -151,16 +149,15 @@ function Login() {
                     <button type="submit">
                         Login
                     </button>
-
                 </form>
 
                 {message && (
                     <p>{message}</p>
                 )}
-
             </div>
         </>
     );
 }
 
 export default Login;
+

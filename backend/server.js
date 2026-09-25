@@ -21,6 +21,9 @@ app.use("/api/auth", loginRoutes);
 const serviceRoutes=require("./Service");
 app.use("/api/service",serviceRoutes);
 
+const customerRequestsRoutes=require("./customerRequest");
+app.use("/api/customerRequests",customerRequestsRoutes);
+
 const authMiddleware = require("./middleware/authmiddleware");
 
 app.get("/", (req, res) => {

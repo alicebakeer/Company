@@ -34,6 +34,7 @@ router.post('/Login', async (req, res) => {
                     Role_id
                 FROM Users
                 WHERE email = @email
+                  AND Role_id IN (1, 2)
             `);
 
         if (result.recordset.length === 0) {
@@ -67,8 +68,13 @@ router.post('/Login', async (req, res) => {
             }
         );
 
+        const message =
+            user.Role_id === 2
+                ? 'Admin login successfully'
+                : 'User login successfully';
+
         res.status(200).json({
-            message: 'Login successfully',
+            message: message,
             token: token,
             user: {
                 users_id: user.users_id,
@@ -90,4 +96,3 @@ router.post('/Login', async (req, res) => {
 });
 
 module.exports = router;
-
