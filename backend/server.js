@@ -24,6 +24,11 @@ app.use("/api/service",serviceRoutes);
 const customerRequestsRoutes=require("./customerRequest");
 app.use("/api/customerRequests",customerRequestsRoutes);
 
+
+const AllUsersRoutes=require("./AllUsers");
+app.use("/api/users",AllUsersRoutes);
+
+
 const authMiddleware = require("./middleware/authmiddleware");
 
 app.get("/", (req, res) => {

@@ -80,7 +80,24 @@ function AdminDashboard() {
                         </button>
                     </div>
 
-                   
+                                              <div className="dashboard-card">
+                        <div className="card-icon">
+                            ✉
+                        </div>
+
+                        <h3>View All Users </h3>
+
+                        <p>
+                        Allow Admin View all Users with Searching and filtering
+                        </p>
+
+                        <button
+                            className="dashboard-btn"
+                            onClick={() => navigate('/AllUsers')}
+                        >
+                          Service
+                        </button>
+                    </div>
                 {user && (
                     <div className="user-info-card">
 

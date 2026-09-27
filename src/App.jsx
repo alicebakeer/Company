@@ -12,6 +12,7 @@ import SignUp from './SignUp';
 import AdminCustomerRequests from './AdminCustomerRequests'
 import {  BrowserRouter,  Routes,  Route
 } from 'react-router-dom';
+import AllUsers from './AllUsers';
 function App() {
     return (
         <BrowserRouter basename="/Company">
@@ -42,6 +43,11 @@ function App() {
                     element={<Contact />}
                 />
 
+
+                <Route
+                    path="/allUsers"
+                    element={<AllUsers />}
+                />
           <Route
     path="/CustomerService"
     element={<CustomerRequest />}

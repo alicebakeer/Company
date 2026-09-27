@@ -2028,3 +2028,95 @@ border-radius: 50%;
         min-width: 100px;
     }
 }
+/* =========================
+   Users Table
+========================= */
+
+.users-container {
+    padding: 30px;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+.users-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+
+/* Search */
+
+.users-search-container {
+    margin-bottom: 20px;
+}
+
+.users-search-input {
+    width: 350px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #ffffff;
+    outline: none;
+    font-size: 14px;
+}
+
+.users-search-input::placeholder {
+    color: #aaa;
+}
+
+.users-search-input:focus {
+    border-color: #888;
+}
+
+/* Table */
+
+.users-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #333;
+}
+
+.users-table th {
+    background-color: #555;
+    color: #ffffff;
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #777;
+    font-weight: 600;
+}
+
+.users-table td {
+    padding: 13px;
+    border-bottom: 1px solid #555;
+    color: #ddd;
+}
+
+.users-table tbody tr:hover {
+    background-color: #3d3d3d;
+}
+
+/* Messages */
+
+.users-loading {
+    color: #bbb;
+    padding: 20px;
+}
+
+.users-error {
+    color: #ff6b6b;
+    padding: 20px;
+}
+
+.users-empty {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+}
