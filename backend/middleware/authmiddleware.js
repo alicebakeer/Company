@@ -1,5 +1,6 @@
+const jwt = require("jsonwebtoken");
 
-const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const authMiddleware = (req, res, next) => {
 
@@ -7,14 +8,15 @@ const authMiddleware = (req, res, next) => {
 
     if (!authHeader) {
         return res.status(401).json({
-            message: 'Access token is required'
+            message: "Access token is required"
         });
     }
-  const token = authHeader.split(' ')[1];
+
+    const token = authHeader.split(" ")[1];
 
     if (!token) {
         return res.status(401).json({
-            message: 'Invalid authorization format'
+            message: "Invalid authorization format"
         });
     }
 
@@ -22,7 +24,7 @@ const authMiddleware = (req, res, next) => {
 
         if (error) {
             return res.status(403).json({
-                message: 'Invalid or expired token'
+                message: "Invalid or expired token"
             });
         }
 

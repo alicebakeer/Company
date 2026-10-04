@@ -28,9 +28,10 @@ app.use("/api/customerRequests",customerRequestsRoutes);
 const AllUsersRoutes=require("./AllUsers");
 app.use("/api/users",AllUsersRoutes);
 
-
 const authMiddleware = require("./middleware/authmiddleware");
+const documentsRoutes = require("./documents");
 
+app.use("/api/documents", authMiddleware, documentsRoutes);
 app.get("/", (req, res) => {
 
     res.send("Backend server is running");

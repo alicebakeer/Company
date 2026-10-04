@@ -101,6 +101,27 @@ function Dashboard() {
                         </button>
                     </div>
 
+
+                  <div className="dashboard-card">
+                        <div className="card-icon">
+                            ✉
+                        </div>
+
+                        <h3>File Management</h3>
+
+                        <p>
+                            You can upload files .
+                        </p>
+
+                        <button
+                            className="dashboard-btn"
+                            onClick={() => navigate('/documents')}
+                        >
+                          Documents
+                        </button>
+                    </div>
+
+
                     <div className="dashboard-card">
                         <div className="card-icon">
                             ✉

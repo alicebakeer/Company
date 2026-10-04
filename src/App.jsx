@@ -10,6 +10,7 @@ import CustomerRequest from './CustomerService';
 import Content from './Content';
 import SignUp from './SignUp';
 import AdminCustomerRequests from './AdminCustomerRequests'
+import Documents from './Documents';
 import {  BrowserRouter,  Routes,  Route
 } from 'react-router-dom';
 import AllUsers from './AllUsers';
@@ -31,6 +32,11 @@ function App() {
                 <Route
                     path="/dashboard"
                     element={<Dashboard />}
+                />
+
+ <Route
+                    path="/documents"
+                    element={<Documents />}
                 />
 
                 <Route
