@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
-import './App.css';
+import './Dash.css';
 
 function Dashboard() {
     const navigate = useNavigate();
-
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -13,206 +11,217 @@ function Dashboard() {
         const savedUser = localStorage.getItem('user');
 
         if (!token) {
-            navigate('/login');
+            navigate('/login', { replace: true });
             return;
         }
 
         if (savedUser) {
-            setUser(JSON.parse(savedUser));
+            try {
+                setUser(JSON.parse(savedUser));
+            } catch {
+                localStorage.removeItem('user');
+            }
         }
     }, [navigate]);
 
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
+    const firstName = user?.first_name || 'User';
 
-        navigate('/login');
-    };
+    const fullName =
+        [user?.first_name, user?.last_name]
+            .filter(Boolean)
+            .join(' ') || 'User';
+
+    const cards = [
+        {
+            icon: '♙',
+            title: 'Customer Requests',
+            description: 'Submit and follow up on your requests.',
+            path: '/CustomerService',
+            label: 'View Requests',
+        },
+        {
+            icon: '▤',
+            title: 'Service Management',
+            description: 'Access the services available to you.',
+            path: '/service',
+            label: 'Explore Services',
+        },
+        {
+            icon: '▣',
+            title: 'File Management',
+            description: 'Upload and organize your documents.',
+            path: '/documents',
+            label: 'View Documents',
+        },
+        {
+            icon: '▧',
+            title: 'Projects',
+            description: 'Manage your projects and tasks.',
+            path: '/projects',
+            label: 'View Projects',
+        },
+        {
+            icon: '✉',
+            title: 'Contact Us',
+            description: 'Contact our team for help and information.',
+            path: '/contact',
+            label: 'Get in Touch',
+        },
+        {
+            icon: '▧',
+            title: 'Content Management',
+            description: 'Manage your website content.',
+            path: '/content',
+            label: 'Manage Content',
+        },
+    ];
 
     return (
-        <div className="dashboard-page">
+        <div className="dashboard-content">
 
-            <Header />
-
-            <div className="dashboard-container">
-
-                <div className="dashboard-header">
-                    <div>
-                        <p className="dashboard-label">
-                            USER DASHBOARD
-                        </p>
-
-                        <h1>
-                            Welcome
-                            {user
-                                ? `, ${user.first_name}`
-                                : ''}
-                        </h1>
-
-                        <p className="dashboard-subtitle">
-                            Manage your account and access your services.
-                        </p>
-                    </div>
-
-                    <div className="user-avatar">
-                        {user
-                            ? user.first_name?.charAt(0).toUpperCase()
-                            : 'U'}
-                    </div>
+            {/* Top Header */}
+            <header className="main-topbar">
+                <div>
+                    <p className="topbar-label">YOUR WORKSPACE</p>
+                    <h2>Dashboard</h2>
                 </div>
 
-
-                <div className="dashboard-cards">
-
-                    <div className="dashboard-card">
-                        <div className="card-icon">
-                            👤
-                        </div>
-
-                        <h3>Customer Request</h3>
-
-                        <p>
-                            Send your Request .
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/CustomerService')}
-                        >
-                            View Profile
-                        </button>
-                    </div>
-                           <div className="dashboard-card">
-                        <div className="card-icon">
-                            ✉
-                        </div>
-
-                        <h3>Service Management</h3>
-
-                        <p>
-                            Your Service is our priority.
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/service')}
-                        >
-                          Service
-                        </button>
+                <div className="topbar-user">
+                    <div className="topbar-avatar">
+                        {firstName.charAt(0).toUpperCase()}
                     </div>
 
-
-                  <div className="dashboard-card">
-                        <div className="card-icon">
-                            ✉
-                        </div>
-
-                        <h3>File Management</h3>
-
-                        <p>
-                            You can upload files .
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/documents')}
-                        >
-                          Documents
-                        </button>
+                    <div className="topbar-user-info">
+                        <strong>{fullName}</strong>
+                        <span>My Account</span>
                     </div>
+                </div>
+            </header>
 
+            {/* Welcome Section */}
+            <section className="dashboard-welcome">
+                <div>
+                    <span className="welcome-tag">
+                        PERSONAL DASHBOARD
+                    </span>
 
-                    <div className="dashboard-card">
-                        <div className="card-icon">
-                            ✉
-                        </div>
+                    <h1>Hello, {firstName}!</h1>
 
-                        <h3>Contact</h3>
+                    <p>
+                        Welcome back. Everything you need to manage
+                        your account is right here.
+                    </p>
 
-                        <p>
-                            Send us your questions, requests or messages.
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/contact')}
-                        >
-                            Contact Us
-                        </button>
-                    </div>
-
-
-                    <div className="dashboard-card">
-                        <div className="card-icon">
-                            ⚙
-                        </div>
-
-                        <h3>Content Management</h3>
-
-                        <p>
-                            Manage and update your website content.
-                        </p>
-
-                        <button
-                            className="dashboard-btn"
-                            onClick={() => navigate('/content')}
-                        >
-                            Manage Content
-                        </button>
-                    </div>
-
+                    <button
+                        type="button"
+                        className="welcome-button"
+                        onClick={() => navigate('/CustomerService')}
+                    >
+                        Get Started <span>→</span>
+                    </button>
                 </div>
 
-
-                {user && (
-                    <div className="user-info-card">
-
-                        <h2>Account Information</h2>
-
-                        <div className="user-info-grid">
-
-                            <div>
-                                <span>First Name</span>
-                                <strong>
-                                    {user.first_name}
-                                </strong>
-                            </div>
-
-                            <div>
-                                <span>Last Name</span>
-                                <strong>
-                                    {user.last_name}
-                                </strong>
-                            </div>
-
-                            <div>
-                                <span>Email</span>
-                                <strong>
-                                    {user.email}
-                                </strong>
-                            </div>
-
-                            <div>
-                                <span>Phone</span>
-                                <strong>
-                                    {user.phone_nbr}
-                                </strong>
-                            </div>
-
-                        </div>
-
-                    </div>
-                )}
-
-
-                <button
-                    className="logout-btn"
-                    onClick={handleLogout}
+                <div
+                    className="welcome-decoration"
+                    aria-hidden="true"
                 >
-                    Logout
-                </button>
+                    <div className="decoration-circle">
+                        <span>✦</span>
+                    </div>
+                </div>
+            </section>
 
-            </div>
+            {/* Quick Access Cards */}
+            <section className="workspace-section">
+                <div className="workspace-heading">
+                    <div>
+                        <h2>Quick Access</h2>
+                        <p>Choose a section to get started.</p>
+                    </div>
+                </div>
+
+                <div className="workspace-grid">
+                    {cards.map((card, index) => (
+                        <article
+                            className="workspace-card"
+                            key={card.path}
+                        >
+                            <div className="workspace-card-top">
+                                <div className="workspace-icon">
+                                    {card.icon}
+                                </div>
+
+                                <span className="workspace-number">
+                                    {String(index + 1).padStart(2, '0')}
+                                </span>
+                            </div>
+
+                            <h3>{card.title}</h3>
+                            <p>{card.description}</p>
+
+                            <button
+                                type="button"
+                                className="workspace-button"
+                                onClick={() => navigate(card.path)}
+                            >
+                                {card.label} <span>→</span>
+                            </button>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            {/* Account Information */}
+            {user && (
+                <section className="account-panel">
+                    <div className="account-panel-heading">
+                        <div className="account-heading-icon">
+                            ♙
+                        </div>
+
+                        <div>
+                            <h2>Account Information</h2>
+                            <p>Your registered personal details.</p>
+                        </div>
+                    </div>
+
+                    <div className="account-details">
+                        <div className="account-detail">
+                            <span>First Name</span>
+                            <strong>
+                                {user.first_name || '—'}
+                            </strong>
+                        </div>
+
+                        <div className="account-detail">
+                            <span>Last Name</span>
+                            <strong>
+                                {user.last_name || '—'}
+                            </strong>
+                        </div>
+
+                        <div className="account-detail">
+                            <span>Email Address</span>
+                            <strong>{user.email || '—'}</strong>
+                        </div>
+
+                        <div className="account-detail">
+                            <span>Phone Number</span>
+                            <strong>{user.phone_nbr || '—'}</strong>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Footer */}
+            <footer className="dashboard-footer">
+                <span>
+                    © {new Date().getFullYear()} Your Workspace
+                </span>
+
+                <span>Personal Dashboard</span>
+            </footer>
+
         </div>
     );
 }

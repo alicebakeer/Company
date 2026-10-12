@@ -1,0 +1,182 @@
+
+.projects-page {
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Container */
+.projects-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Main Title */
+.projects-container h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 15px;
+}
+
+/* Form and Project List */
+.project-form,
+.projects-list {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Section Titles */
+.project-form h3,
+.projects-list h3 {
+    color: #000000;
+    font-size: 21px;
+    margin-top: 0;
+    margin-bottom: 22px;
+    font-weight: 600;
+}
+
+/* Form Fields */
+.project-form > div {
+    margin-bottom: 20px;
+}
+
+.project-form label {
+    display: block;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.project-form input,
+.project-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Input Focus */
+.project-form input:focus,
+.project-form textarea:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Placeholder */
+.project-form input::placeholder,
+.project-form textarea::placeholder {
+    color: #888888;
+}
+
+/* Textarea */
+.project-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Add Project Button */
+.project-form button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.project-form button:hover {
+    background-color: #333333;
+}
+
+/* Success and Error Messages */
+.project-message {
+    margin-top: 15px;
+    color: #000000;
+    font-size: 14px;
+}
+
+/* Projects Grid */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+/* Individual Project Card */
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Project Name */
+.project-card h3 {
+    color: #000000;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+/* Project Description */
+.project-card p {
+    color: #333333;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Empty Projects Message */
+.no-projects {
+    color: #666666;
+    font-size: 14px;
+    padding: 15px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-page {
+        padding: 15px;
+    }
+
+    .project-form,
+    .projects-list {
+        padding: 18px;
+    }
+
+    .projects-container h2 {
+        font-size: 25px;
+    }
+
+    .project-cards {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import Dashboard from './dashboard';
 function Services() {
 
     const [Service, setService] = useState([]);
@@ -217,7 +218,7 @@ const handleSubmit = async (e) => {
     };
 
     return (
-
+<>
         <div className="Service-management">
 
             <h1>Service Management</h1>
@@ -368,6 +369,7 @@ const handleSubmit = async (e) => {
             )}
 
         </div>
+        </>
 
     );
 

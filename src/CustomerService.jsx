@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import DashboardHome from "./DashboardHome";
 
 function CustomerRequest() {
     const [requests, setRequests] = useState([]);
@@ -187,6 +188,7 @@ function CustomerRequest() {
     };
 
     return (
+        <>
         <div className="customer-request">
             <h2>Customer Requests</h2>
 
@@ -368,6 +370,7 @@ function CustomerRequest() {
                 )}
             </div>
         </div>
+        </>
     );
 }
 

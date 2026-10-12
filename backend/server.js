@@ -18,6 +18,10 @@ const loginRoutes = require("./Login");
 console.log("LOGIN ROUTES LOADED");
 app.use("/api/auth", loginRoutes);
 
+const projectsRoutes = require("./Projects");
+
+app.use("/api/projects", projectsRoutes);
+
 const serviceRoutes=require("./Service");
 app.use("/api/service",serviceRoutes);
 

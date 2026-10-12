@@ -1,88 +1,136 @@
 import './App.css';
+
 import Home from './Home';
 import Login from './Login';
 import About from './About';
 import Contact from './Contact';
-import Dashboard from './Dashboard';
+import Projects from './Projects';
 import AdminDashboard from './AdminDashboard';
+import Dashboard from './dashboard';
 import Services from './Services';
 import CustomerRequest from './CustomerService';
 import Content from './Content';
 import SignUp from './SignUp';
-import AdminCustomerRequests from './AdminCustomerRequests'
+import DashboardHome from './DashboardHome';
+import AdminCustomerRequests from './AdminCustomerRequests';
 import Documents from './Documents';
-import {  BrowserRouter,  Routes,  Route
-} from 'react-router-dom';
 import AllUsers from './AllUsers';
+
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+} from 'react-router-dom';
+
+// Reusable layout for user pages
+function UserLayout({ children }) {
+    return (
+        <DashboardHome>
+            {children}
+        </DashboardHome>
+    );
+}
+
 function App() {
     return (
         <BrowserRouter basename="/Company">
             <Routes>
+                {/* Public pages */}
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
 
-                <Route
-                    path="/"
-                    element={<Home />}
-                />
-
-                <Route
-                    path="/about"
-                    element={<About />}
-                />
-
+                {/* User pages with persistent sidebar */}
                 <Route
                     path="/dashboard"
-                    element={<Dashboard />}
+                    element={
+                        <UserLayout>
+                            <Dashboard />
+                        </UserLayout>
+                    }
                 />
 
- <Route
+                <Route
+                    path="/CustomerService"
+                    element={
+                        <UserLayout>
+                            <CustomerRequest />
+                        </UserLayout>
+                    }
+                />
+
+                <Route
+                    path="/service"
+                    element={
+                        <UserLayout>
+                            <Services />
+                        </UserLayout>
+                    }
+                />
+
+                <Route
                     path="/documents"
-                    element={<Documents />}
+                    element={
+                        <UserLayout>
+                            <Documents />
+                        </UserLayout>
+                    }
                 />
 
+                <Route
+                    path="/contact"
+                    element={
+                        <UserLayout>
+                            <Contact />
+                        </UserLayout>
+                    }
+                />
+
+                <Route
+                    path="/projects"
+                    element={
+                        <UserLayout>
+                            <Projects />
+                        </UserLayout>
+                    }
+                />
+
+                <Route
+                    path="/content"
+                    element={
+                        <UserLayout>
+                            <Content />
+                        </UserLayout>
+                    }
+                />
+
+                <Route
+                    path="/dashboardhome"
+                    element={
+                        <UserLayout>
+                            <Dashboard />
+                        </UserLayout>
+                    }
+                />
+
+                {/* Admin pages */}
                 <Route
                     path="/AdminDashboard"
                     element={<AdminDashboard />}
                 />
 
                 <Route
-                    path="/contact"
-                    element={<Contact />}
-                />
-
-
-                <Route
                     path="/allUsers"
                     element={<AllUsers />}
                 />
-          <Route
-    path="/CustomerService"
-    element={<CustomerRequest />}
-/>
-<Route
-    path="/AdminCustomerRequests"
-    element={<AdminCustomerRequests />}
-/>
-                <Route
-                    path="/signup"
-                    element={<SignUp />}
-                />
 
                 <Route
-                    path="/login"
-                    element={<Login />}
+                    path="/AdminCustomerRequests"
+                    element={<AdminCustomerRequests />}
                 />
-
-                <Route
-                    path="/service"
-                    element={<Services />}
-                />
-
-                <Route
-                    path="/content"
-                    element={<Content />}
-                />
-
             </Routes>
+    
         </BrowserRouter>
     );
 }

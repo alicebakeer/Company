@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import './App.css'
+import DashboardHome from './DashboardHome';
 function ContentManagement() {
 
     const [contents, setContents] = useState([]);
@@ -172,6 +173,7 @@ function ContentManagement() {
 
 
     return (
+        <>
         <div className="content-management">
 
             <h1>Content Management</h1>
@@ -270,6 +272,7 @@ function ContentManagement() {
             )}
 
         </div>
+        </>
     );
 }
 
